@@ -1,36 +1,268 @@
-body {
-  background-image: url('kmart.jpeg');
-  font-family: Arial, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+body,
+html {
   margin: 0;
-  background-size: cover;
-  /* Stretch the background image to cover the entire page */
-   background-repeat: no-repeat;
-    /* Prevent the background image from repeating */
-     background-position: center;
-      align-items: flex-end;
-        /* Align items at the bottom */
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  /* Hide scrollbars */
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200vw;
+  /* Twice the viewport width to accommodate both images */
+  height: 100vh;
+  background-image: url('sky3.jpg'), url('sky4.jpg');
+  /* Replace with your images */
+  background-size: 50% 100%, 50% 100%;
+  /* Each image takes half the width */
+  background-position: 0 0, 100% 0;
+  /* Position images side by side */
+  background-repeat: no-repeat;
+  animation: slideBackground 8s linear infinite, flicker 1s steps(5, end) infinite;
+  /* Add flicker animation */
+}
+
+@keyframes slideBackground {
+  0% {
+    background-position: 0 0, 100% 0;
+    /* Start with the first image in view */
+  }
+
+  100% {
+    background-position: -100% 0, 0 0;
+    /* Slide to the second image */
+  }
+}
+
+
+.overlay {
+  position: absolute;
+  bottom: -100px;
+  left: 50%;
+  width: 1100px;
+  height: 900px;
+  transform: translate(-50%, 0);
+  cursor: pointer;
+  animation: float 5s ease-in-out infinite, sway 3s ease-in-out infinite;
+}
+
+
+
+@keyframes float {
+  0% {
+    transform: translate(-50%, 0) translateY(0);
+  }
+
+  50% {
+    transform: translate(-50%, 0) translateY(-5px);
+  }
+
+  100% {
+    transform: translate(-50%, 0) translateY(0);
+  }
 }
 
 .countdown-container {
-  margin-bottom: 20px;
-  /* Add some margin at the bottom for spacing from the bottom edge */
-}
-
-.countdown-container {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
   text-align: center;
   padding: 20px;
-  border-radius: 10px;
-  background: radial-gradient(circle, #00B4AB 30%, #f84235 60%, silver 90%);
-  /* Set the radial gradient as the background */
+  border-radius: 100px;
+  background: radial-gradient(circle, rgb(34, 34, 91) 30%, rgb(4, 4, 4) 60%, rgb(59, 45, 45) 90%);  font-size: 24px;
+  color: white;
+  z-index: 10;
+    border: 22px solid #10082c;
 }
 
 #countdown {
   font-size: 2rem;
-  margin-top: 20px;
-  color: black;
-  /* Set text color to black for better contrast */
+  margin-top: 10px;
+  color: red;
+}
+
+.fallback-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('sky1.jpg');
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+
+
+@keyframes flicker {
+
+  0%,
+  100% {
+    background-color: black;
+    /* Full black */
+  }
+
+  10% {
+    background-color: rgba(0, 0, 0, 0.8);
+    /* Slightly less black */
+  }
+
+  20% {
+    background-color: rgba(0, 0, 0, 0.6);
+    /* Less black */
+  }
+
+  30% {
+    background-color: rgba(0, 0, 0, 0.4);
+    /* More transparent */
+  }
+
+  40% {
+    background-color: rgba(0, 0, 0, 0.2);
+    /* Almost transparent */
+  }
+
+  50% {
+    background-color: rgba(0, 0, 0, 0.1);
+    /* Very transparent */
+  }
+
+  60% {
+    background-color: rgba(0, 0, 0, 0.2);
+    /* Back to almost transparent */
+  }
+
+  70% {
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Slightly more black */
+  }
+
+  80% {
+    background-color: rgba(0, 0, 0, 0.6);
+    /* Less transparent */
+  }
+
+  90% {
+    background-color: rgba(0, 0, 0, 0.8);
+    /* Slightly less black */
+  }
+}
+
+
+
+@keyframes flicker {
+  0% {
+    opacity: 100;
+  }
+
+  10% {
+    opacity: 0.108;
+  }
+
+  20% {
+    opacity: 0.16;
+  }
+
+  30% {
+    opacity: 0.4;
+  }
+
+  40% {
+    opacity: 0.2;
+  }
+
+  50% {
+    opacity: 0.1;
+  }
+
+  60% {
+    opacity: 0.2;
+  }
+
+  70% {
+    opacity: 0.4;
+  }
+
+  80% {
+    opacity: 0.6;
+  }
+
+  90% {
+    opacity: 0.8;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  /* Hide scrollbars */
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200vw;
+  /* Twice the viewport width to accommodate both images */
+  height: 100vh;
+  background-image: url('sky3.jpg'), url('sky4.jpg');
+  /* Replace with your images */
+  background-size: 50% 100%, 50% 100%;
+  /* Each image takes half the width */
+  background-position: 0 0, 100% 0;
+  /* Position images side by side */
+  background-repeat: no-repeat;
+  animation: slideBackground 8s linear infinite, flicker 3.5s steps(10, end) infinite;
+  /* Slower flicker animation */
+}
+
+@keyframes slideBackground {
+  0% {
+    background-position: 0 0, 100% 0;
+    /* Start with the first image in view */
+  }
+
+  100% {
+    background-position: -100% 0, 0 0;
+    /* Slide to the second image */
+  }
 }
