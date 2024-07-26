@@ -1,5 +1,5 @@
 // Set the date of your trip
-const tripDate = new Date("December 25, 2024 00:00:00").getTime();
+const tripDate = new Date("April 13, 2029 16:46:00").getTime();
 
 // Update the countdown every second
 const countdown = setInterval(function() {
@@ -21,3 +21,19 @@ const countdown = setInterval(function() {
     document.getElementById("countdown").innerHTML = "Trip time!";
   }
 }, 1000);
+
+document.addEventListener('DOMContentLoaded', () => {
+    const overlay = document.querySelector('.overlay');
+
+    // Function to move the overlay image
+    const moveOverlay = (event) => {
+        const x = event.clientX;
+        const y = event.clientY;
+        overlay.style.left = `${x - overlay.clientWidth / 2}px`;
+        overlay.style.top = `${y - overlay.clientHeight / 2}px`;
+    };
+
+  
+});
+
+
