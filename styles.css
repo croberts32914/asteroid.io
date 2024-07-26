@@ -76,7 +76,7 @@ html {
 
 .countdown-container {
   position: absolute;
-  top: 20px;
+  top: 170px;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
